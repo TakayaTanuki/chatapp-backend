@@ -24,11 +24,11 @@ router.post('/', function (req, res, next) {
     const loginSQL = 'SELECT * from user_informations where user_id=? AND password=?'
 
     connection.query(loginSQL, [userId, password],
-        function (error, results, fields){
+        function (error, results, fields) {
             console.log(results);
-            if(results.length >= 1){
+            if (results.length >= 1) {
                 res.send('OK');
-            }else{
+            } else {
                 res.send('NG');
             }
         }
