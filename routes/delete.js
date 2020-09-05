@@ -10,9 +10,6 @@ router.post('/', (req, res, next) => {
   // データベースの設定情報
   var connection = mysql.createConnection(config.mysql_setting);
 
-  // データベースに接続
-  connection.connect();
-
   // データを取り出す
   connection.query(config.deleteHistorySQL, function (error, results, fields) {
     // errorがnull、つまり成功した場合はOKを返す
@@ -23,8 +20,6 @@ router.post('/', (req, res, next) => {
     }
   }
   );
-  // 接続を解除
-  connection.end();
 });
 
 module.exports = router;
