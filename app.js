@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var deleteRouter = require('./routes/delete');
 var loginRouter = require('./routes/login');
+var getHistoriesRouter = require('./routes/getHistories');
 
 
 var app = express();
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/delete', deleteRouter);
 app.use('/login', loginRouter);
+app.use('/getHistories',getHistoriesRouter)
 
 
 
